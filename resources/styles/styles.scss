@@ -18,7 +18,17 @@ input[type=submit] {
 .cd {
   border:1px solid black;
   margin:10px;
-  padding:5px;
+  padding:20px;
   border-radius:10px;
   display: inline-block;
+  button {
+    width:100%;
+  }
+  h1 {
+    padding:0;margin:0;
+  }
+}
+
+.cart {
+  border-top:1px solid black;
 }

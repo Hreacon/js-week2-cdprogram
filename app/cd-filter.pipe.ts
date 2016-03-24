@@ -2,17 +2,29 @@ import { Pipe, PipeTransform } from 'angular2/core';
 import { Cd } from './cd.module';
 
 @Pipe({
-  name:'cdfilter',
+  name:'genrePipe',
   pure: false
 })
-export class CdFilterPipe {
+export class GenrePipe {
   transform(input: Cd[], args) {
-    var filterType: string = args[0];
-    var filterBy: string = args[1];
-    var filterTypes: string[] = ["genre", "artist"];
-    var filterBys: string[] = ["rock", "opera"];
-    for(var i = 0;i<filterTypes.length;i++) {
+    if(args[0] !== "All")
+      return input.filter(function(cd){
+        return cd.genre == args[0];
+      });
+    else return input;
+  }
+}
 
-    }
+@Pipe({
+  name:'artistPipe',
+  pure: false
+})
+export class ArtistPipe {
+  transform(input: Cd[], args) {
+    if(args[0] !== "All")
+      return input.filter(function(cd){
+        return cd.artist == args[0];
+      });
+    else return input;
   }
 }
